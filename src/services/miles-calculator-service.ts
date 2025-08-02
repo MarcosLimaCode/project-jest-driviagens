@@ -7,14 +7,16 @@ export function calculateMiles(trip: Trip) {
   if (!usingMiles) {
     // calculate
     const distance = calculateDistance(trip.origin, trip.destination);
-    const serviceClassMultiplier = calculateServiceClassMultiplier(trip.service);
+    const serviceClassMultiplier = calculateServiceClassMultiplier(
+      trip.service
+    );
     const affiliateBonus = calculateAffiliateBonus(trip.affiliate);
     const birthdayMonthBonus = calculateBirthdayBonus(new Date(trip.date));
 
     // apply
     miles = distance * serviceClassMultiplier;
-    miles = miles + (miles * affiliateBonus);
-    miles = miles + (miles * birthdayMonthBonus);
+    miles = miles + miles * affiliateBonus;
+    miles = miles + miles * birthdayMonthBonus;
   }
 
   miles = Math.round(miles);
@@ -26,7 +28,7 @@ function calculateServiceClassMultiplier(serviceClass: ServiceClass) {
     ECONOMIC: 1,
     ECONOMIC_PREMIUM: 1.25,
     EXECUTIVE: 1.5,
-    FIRST_CLASS: 2
+    FIRST_CLASS: 2,
   };
 
   return classes[serviceClass];
@@ -37,8 +39,8 @@ function calculateAffiliateBonus(affiliate: AffiliateStatus) {
     BRONZE: 0,
     SILVER: 0.1,
     GOLD: 0.25,
-    PLATINUM: 0.5
-  }
+    PLATINUM: 0.5,
+  };
 
   return status[affiliate];
 }

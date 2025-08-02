@@ -22,4 +22,14 @@ describe("Calculate Miles", () => {
 
     expect(result).toBe(0);
   });
+
+  it("should calculate miles in birthday month with bonus", async () => {
+    const fakeTrip = await createTrip();
+    const result = serviceFunctions.calculateMiles({
+      ...fakeTrip,
+      date: "2027-06-01",
+    });
+
+    expect(result).toBeGreaterThan(0);
+  });
 });
