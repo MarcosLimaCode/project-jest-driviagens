@@ -1,7 +1,7 @@
 {
   "name": "vai-de-milhas",
   "version": "1.0.0",
-  "description": "Vai de Milhas como projeto para formação da DrivenFlex.",
+  "description": "Vai de Milhas como projeto para formação da Driven.",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
