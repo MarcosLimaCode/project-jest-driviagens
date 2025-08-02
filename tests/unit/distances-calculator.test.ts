@@ -17,13 +17,13 @@ describe("calculate distances", () => {
     expect(result).toBeDefined();
   });
 
-  it("should return the radius", async () => {
+  it("should return the radius", () => {
     const result = serviceFunctions.toRadius(1000);
     expect(result).toBeGreaterThan(0);
     expect(result).toBeDefined();
   });
 
-  it("should return the Haversine Formula", async () => {
+  it("should return the Haversine Formula", () => {
     const result = serviceFunctions.applyHaversineFormula(1, 2, 3, 4, 5);
     expect(result).toBeGreaterThan(0);
     expect(result).toBeDefined();
